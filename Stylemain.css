@@ -1,0 +1,410 @@
+/*===  reset === */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/*=== font-family: 'Advent Pro', sans-serif;
+      font-family: 'Beau Rivage', cursive;
+      font-family: 'Grape Nuts', cursive;
+      font-family: 'K2D', sans-serif;
+      font-family: 'Lavishly Yours', cursive;
+      font-family: 'Parisienne', cursive;
+      font-family: 'Hurricane', cursive;=== */
+
+
+/*=== variaveis === */
+
+:root{
+  --border-color:rgba(123, 197, 144, 1);
+  --divider-color:linear-gradient(90deg, #dd658d 0%, #6af7f2 100%);
+  --menu-color:rgba(210, 244, 231, 1);
+  --title-color:rgba(72, 119, 85, 1);
+  --box-color:linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+  --header-height: 4.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*=== header ===*/
+
+#header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid var(--title-color);
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: var(--header-height);
+  width: 100%;
+   
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+nav{
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+ 
+}
+
+/*=== logo lua ===*/
+
+.logo{
+  height: 3rem;
+  margin: 0.5rem;
+  position: absolute;
+  left: 0px;
+}
+
+/*=== logo escrito brecho da lua ===*/
+
+h1{
+  font-family: 'Parisienne';
+  font-size: 2rem;
+  color: var(--title-color);
+  position: absolute;
+  left: 3.5rem;
+  margin: 0.5rem;
+}
+  
+/*====  icone menu === */
+
+.toggle
+{
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: var(--title-color);
+  transition: color 0.5s;
+  margin: 1rem;
+
+  position: absolute;
+  right: 0.5rem;  
+}
+
+.toggle:hover {
+  color: var(--border-color);
+}
+/*==== Esconder lista de menu da pagina principal === */
+
+nav .menu
+{
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.2s;
+}
+
+/*==== Esconder icone de fechar da pagina principal === */
+
+nav .icon-Iconefechar{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.icon-Iconefechar{
+  position: fixed;
+}
+
+/*====  mostrar menu ============================ */
+
+nav.show .menu
+{
+  opacity: 1;
+  visibility: visible;
+
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+  display: grid;
+  place-content: center;
+
+  background:linear-gradient(55deg, rgb(202, 211, 255) 0%, rgb(254, 216, 224) 100%);
+  background-size: 300% 300%;
+  animation: colors 5s ease-in-out infinite;
+}
+
+@keyframes colors{
+  0%{
+    background-position: 0% 50%;
+  }
+
+  50%{
+    background-position: 100% 50%;
+  }
+
+  100%{
+    background-position: 0% 50%;
+  }
+}
+
+/*====  lista dentro do menu ============================ */
+
+nav.show ul.grid
+{
+  gap:4rem;
+}
+
+.grid
+{
+  display: grid;
+  text-align: center;
+}
+
+.title
+{
+  font-family: 'K2D', sans-serif;
+  font-size: 50px;
+  color:var(--title-color);
+}
+
+/*====  animação dos itens do grid ==== */
+
+.title:hover{
+color: var(--border-color);
+}
+
+nav ul li a{
+  position: relative;
+}
+
+nav ul li a::after{
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--title-color);
+
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+
+  transition: width 0.5s;
+}
+
+nav ul li a:hover::after{
+  width: 100%;
+}
+
+/*====  mostrar icone de fechar menu ==== */
+
+nav.show .icon-Iconefechar {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*====  sumir icone de menu quando aparecer o menu em tela cheia) ============================ */
+
+nav.show .icon-Iconemenu { 
+  visibility: hidden;
+  opacity: 1;
+}
+
+/*==== layout ==== */
+
+body {
+  background:linear-gradient(90deg, #ffe6ee 0%, #e1fffe 100%) ;
+  
+}
+
+.section {
+  padding: calc(5rem + var(--header-height)) 0;
+}
+
+
+
+.section .imagem {
+  position: relative;
+  z-index: -1;
+  margin: 2rem;
+}
+
+.section .imagem::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--box-color);
+  position: absolute;
+  top: 2.5%;
+  left: 5%;
+  z-index: -2;
+  border-radius: 5%;
+}
+
+.section .imagem img {
+  width: 100%;
+  position: relative;
+  right: 1.8rem;
+  border-radius: 5%;
+  border: 1px solid #ffffff ;
+  
+  
+  
+}
+
+/*=== estilo da lista === */
+ul{
+  list-style-type:none;
+  }
+
+/*==== estilo textos ==== */
+
+.conteudo-texto{
+  padding: 2rem;
+  padding-top: 0;
+  font-family: 'Grape Nuts', cursive;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.subtitulo{
+  font-family: 'Lavishly Yours', cursive;
+  font-size: 3rem;
+  color: var(--title-color);
+  margin: 1rem;
+ 
+  
+}
+
+
+/*==== contatos ==== */
+
+#contatos .imagens-rede img{
+  align-items: center;
+  width: 30%;
+  margin: 1rem;
+  margin-top: 1rem;
+}
+
+#contatos .imagens-rede img:hover{
+  transform: translateY(-15px)
+}
+
+
+/*==== divisor das paginas ==== */
+
+.divider-1 {
+  width: 100%;
+  height: 2px;
+  background: var(--divider-color);
+}
+
+/*==== responsivo ==== */
+
+@media (min-width:1200px){
+  .container {
+    margin-left: auto;
+    margin-right: 3rem;
+    
+  }
+
+  .conteudo-texto{
+    font-size:2.5rem; 
+  }
+  
+  .subtitulo{
+    font-size: 5rem; 
+  }
+   
+   /* inicio */
+  
+   #inicio .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1.5rem;
+   
+  }
+  
+  /* roupas */
+
+  #roupas .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1.5rem;
+    
+  }
+
+  /* livros */
+
+  #livros .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1.5rem;
+    
+  }
+
+  /* artesanato */
+
+  #artesanato .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1.5rem;
+    
+  }
+  
+  /* artesanato */
+
+  #artesanato .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1.5rem;
+    
+  }
+
+   /* contatos */
+
+   #contatos .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1.5rem;
+    
+  }
+ 
+  /*==== navegacao sem icone de menu ==== */
+
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+    margin-left:32rem;
+  
+  }
+
+  nav .menu ul {
+    grid-auto-flow: column;
+    align-items: end;
+    gap: 2rem;
+    
+  }
+
+  nav .icon-Iconemenu {
+    display: none;
+  }
+
+  nav .menu ul li a.title {
+    font-size: 2rem;
+   
+    
+    
+  }
+
+  
+} 
